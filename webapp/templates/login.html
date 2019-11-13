@@ -4,9 +4,11 @@
 <div class="row">
     <div class="col-6">
         <form method="post" action="{% url 'login' %}">
-            {% csrf_token %}
-            {{ form.as_p.label }}
-            {{ form.as_p }}
+            </br>
+            <div class="form-group">
+                {% csrf_token %}
+                {{ form.as_p }}
+            </div>
             {% if form.errors %}
             <p>Your username and password didn't match, try again </p>
             {% endif %}
