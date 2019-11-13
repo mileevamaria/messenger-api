@@ -1,7 +1,9 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import render
 from webapp.models import Chat, Message
+
 
 def index(request):
     title = "Список чатов"
@@ -17,6 +19,7 @@ def index(request):
     context = {'title': title, 'chats': chats, 'lastests': lastests}
     return render(request, 'index.html', context)
 
+@login_required
 def chat(request, chat_id):
     chat = Chat.objects.get(id=chat_id)
     title = chat.name

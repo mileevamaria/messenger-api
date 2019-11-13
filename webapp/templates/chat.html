@@ -9,6 +9,7 @@
         {% for message in messages %}
         <li>
             <small>{{ message.created_at }}</small>
+            <h6>{{ message.author.username }}</h6>
             {{ message.text|linebreaks }}
             <hr />
         </li>

@@ -17,4 +17,3 @@ urlpatterns = [
     # Logout page
     url(r'^logout/$', LogoutView.as_view(), name='logout'),
 ]
-
