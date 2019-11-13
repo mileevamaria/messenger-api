@@ -5,11 +5,15 @@ from webapp.models import Chat, Message
 
 def index(request):
     title = "Список чатов"
-    chats = Chat.objects.all()
+    current_user = request.user
     lastests = {}
-    for chat in chats:
-        lastest = chat.message_set.order_by('-created_at')[0]
-        lastests[chat.id] = lastest.text
+    if current_user.is_authenticated:
+        chats = current_user.chat_set.all()
+        for chat in chats:
+            lastest = chat.message_set.order_by('-created_at')[0]
+            lastests[chat.id] = lastest.text
+    else:
+        chats = []
     context = {'title': title, 'chats': chats, 'lastests': lastests}
     return render(request, 'index.html', context)
 
