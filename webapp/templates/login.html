@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-6">
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            {{ form.as_p.label }}
+            {{ form.as_p }}
+            {% if form.errors %}
+            <p>Your username and password didn't match, try again </p>
+            {% endif %}
+            <input type="submit" class="btn btn-primary">
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

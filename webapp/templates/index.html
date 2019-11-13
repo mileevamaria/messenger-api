@@ -6,19 +6,23 @@
         <div class="col-6">
         <h2>Ваши чаты</h2>
         </br>
-            {% for chat in chats %}
-            <li>
-                <h5><a href="{% url 'chat' chat.id %}">{{ chat.name }}</a></h5>
-                {% for key, value in lastests.items %}
-                    {% if key == chat.id %}
-                        <p>{{ value }}</p>
-                    {% endif %}
+            {% if user.is_authenticated %}
+                {% for chat in chats %}
+                <li>
+                    <h5><a href="{% url 'chat' chat.id %}">{{ chat.name }}</a></h5>
+                    {% for key, value in lastests.items %}
+                        {% if key == chat.id %}
+                            <p>{{ value }}</p>
+                        {% endif %}
+                    {% endfor %}
+                    <hr />
+                </li>
+                {% empty %}
+                <p>У вас нет чатов</p>
                 {% endfor %}
-                <hr />
-            </li>
-            {% empty %}
-            <p>У вас нет чатов</p>
-            {% endfor %}
+            {% else %}
+            <p>Авторизуйтесь для доступа к чатам</p>
+            {% endif %}
         </div>
     </div>
 

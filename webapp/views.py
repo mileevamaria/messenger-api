@@ -1,3 +1,5 @@
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from django.shortcuts import render
 from webapp.models import Chat, Message
 
@@ -17,3 +19,7 @@ def chat(request, chat_id):
     messages = chat.message_set.order_by('created_at')
     context = {'title': title, 'chat': chat, 'messages': messages}
     return render(request, 'chat.html', context)
+
+def logout(request):
+    logout(request)
+    return False
