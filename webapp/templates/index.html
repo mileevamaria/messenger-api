@@ -1,1 +1,25 @@
-<p>This page for your chats</p>
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-6">
+        <h2>Ваши чаты</h2>
+        </br>
+            {% for chat in chats %}
+            <li>
+                <h5><a href="{% url 'chat' chat.id %}">{{ chat.name }}</a></h5>
+                {% for key, value in lastests.items %}
+                    {% if key == chat.id %}
+                        <p>{{ value }}</p>
+                    {% endif %}
+                {% endfor %}
+                <hr />
+            </li>
+            {% empty %}
+            <p>У вас нет чатов</p>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock content %}
