@@ -37,9 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 
     # My apps
     'webapp',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -89,6 +91,9 @@ DATABASES = {
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+DATE_INPUT_FORMATS = ['iso-8601', '%Y-%m-%dT%H:%M:%S.%fZ']
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
