@@ -16,6 +16,11 @@
         {% empty %}
         <p>В чате нет сообщений</p>
         {% endfor %}
+        <form class="form-inline" method="POST" action="">
+            {% csrf_token %}
+            <input class="form-control mr-sm-2" type="search" name="message_text" placeholder="Набрать сообщение">
+            <button class="btn btn-outline-primary" type="submit">Отправить</button>
+        </form>
     </div>
 </div>
 

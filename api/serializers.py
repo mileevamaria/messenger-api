@@ -32,3 +32,8 @@ class ChatSerializer(serializers.Serializer):
         instance.created_at = validated_data.get('created_at')
         instance.save()
         return instance
+
+
+class UserSerializer(serializers.Serializer):
+    id = fields.IntegerField()
+    username = fields.CharField(max_length=200)
