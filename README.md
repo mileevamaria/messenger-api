@@ -2,7 +2,7 @@
 
 
 ## Stack
-- **Back-end**: django, django rest
+- **Back-end**: django, django rest, pytest
 - **Front-end**: bootstrap
 - **Database**: mysql
 
